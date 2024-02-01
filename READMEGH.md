@@ -32,7 +32,7 @@
 
 ## 4. 주요 기능
 #### 브랜드 홈페이지 
-   -슬라이드 갤러리
+   -슬라이드 갤러리  
    ![slide_gallery.gif](/imageFile/Animation1.gif)  
    jQuery를 활용한 폰트 움직임
 #### 회사소개 페이지
