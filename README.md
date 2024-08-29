@@ -30,7 +30,7 @@
 ![JQuery Badge](https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white)
 ![HTML Badge](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white)
 ![CSS Badge](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white)   
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=UHB4&langs_count=8)](https://github.com/UHB4/github-readme-stats)
+
 
 ***
 ### 담당업무
