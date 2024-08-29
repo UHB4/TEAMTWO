@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+
+    <title>Home Page</title>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
+
+
+
+
+
+    <link rel="stylesheet" href="./jaewoo/home.css">
+    <link rel="stylesheet" href="css/jquery.bxslider.min.css">
+
+
+
+
+<!--    <style>-->
+<!--        *{margin: 0;padding: 0;}-->
+<!--        #gallery_wrap{-->
+<!--            margin: 0 auto;-->
+<!--            width: 640px;-->
+<!--        }-->
+<!--    </style>-->
+
+    <script>
+        $(function() {
+            $('.slide_gallery').bxSlider({
+                auto: true,
+                autoControls: true,
+                stopAutoOnClick: true,
+                pager: true
+            });
+        });
+    </script>
+
+    <script src="js/chatBot.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+
+
+
+        <div class="header">
+
+
+
+
+
+            <h1><a href="index.html">NATIONAL<br>GEOGRAPH</a></h1>
+            <div class="sreach">
+                <input id="srch" type="text" value="검색">
+<!--                <span>검색</span>-->
+
+
+            </div>
+            <div class="minNav">
+                <ul>
+                    <li><a href="./여진/loginpage.html">LOGIN</a></li>
+                    <li><a href="#">SIGNUP</a></li>
+                    <li><a href="mobile/newPage3.html">MOBILE</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="bar">
+            <ul>
+                <li><a href="./가현_1.2/company%20page.html">C O M P A N Y</a></li>
+                <li><a href="./현빈/NewProduct.html">S H O P</a></li>
+<!--                <li><a href="#">운동복</a></li>-->
+            </ul>
+            </div>
+        </div>
+
+        <div class="screen">
+
+        <div id="gallery_wrap">
+            <ul class="slide_gallery">
+                <li><img src="./jaewoo/img/pic_1.jpg" alt="사진1"></li>
+                <li><img src="./jaewoo/img/pic_2.jpg" alt="사진2"></li>
+                <li><img src="./jaewoo/img/333.jpg" alt="사진3"></li>
+<!--                <li><img src="img/pic_4.jpg" alt="사진4"></li>-->
+<!--                <li><img src="img/pic_5.jpg" alt="사진5"></li>-->
+<!--                <li><img src="img/pic_6.jpg" alt="사진6"></li>-->
+<!--                <li><img src="img/pic_7.jpg" alt="사진7"></li>-->
+<!--                <li><img src="img/pic_8.jpg" alt="사진8"></li>-->
+            </ul>
+        </div>
+
+        <div id="article">
+            <h1>DESIGH</h1>
+            <p>Lorem ipsum dollis felisucibus quam condimentum vitae. Sed suscipit rutrum metus, vel efficitur turpis ornare a. Integer commodo eros vitae felis facilisis auctor. Integer vulputate dolor magna, vel facilisis quam faucibus vel. Donec id sodales libero. Mauris ligula libero, tempor vel nibh in, tristique commodo ex. Sed aliquet tortor ipsum, eu gravida eros cursus et.</p>
+        </div>
+
+
+        </div>
+
+
+        <div class="apeal">
+            <div class="box1">
+                <h1>PICK YOUR FAVORITE</h1>
+
+            </div>
+
+            <div class="box2">
+
+
+                <div id="chat-container"></div>
+
+            <script>
+                // jQuery가 문서를 모두 읽었을 때 실행
+                $(document).ready(function() {
+                    // 채팅 내용을 담을 컨테이너 선택
+                    const chatContainer = $('#chat-container');
+
+                    // 사용자와 챗봇이 메시지를 출력하는 함수
+                    function appendMessage(sender, message) {
+                        // 메시지 요소 생성
+                        const messageElement = $('<div></div>').html(`<strong>${sender}:</strong> ${message}`);
+                        // 채팅 컨테이너에 메시지 추가
+                        chatContainer.append(messageElement);
+                        // 채팅 컨테이너를 가장 아래로 스크롤
+                        chatContainer.scrollTop(chatContainer.prop('scrollHeight'));
+                    }
+
+                    // 사용자의 메시지를 받아서 챗봇이 응답하는 함수
+                    function sendMessage(userMessage) {
+                        // 사용자가 입력한 메시지를 채팅창에 추가
+                        appendMessage('User', userMessage);
+
+                        // 여기에서 챗봇이 응답하는 로직을 추가
+                        // 간단한 예시로 챗봇이 '안녕하세요!'라고 응답하는 것으로 하겠습니다.
+
+                        // setTimeout: 일정한 시간이 지난 후에 함수를 실행하게 하는 함수
+                        // 아래 500ms(0.5초) 지연 후 챗봇이 응답하게 하는 이유는
+                        // 채팅이 자연스럽게 보이기 위함이다.
+                        setTimeout(function() {
+                            appendMessage('Chatbot', '오늘은 일요일이여서 쉼 옆에 챗봇 이용 부탁');
+                        }, 500);
+                    }
+
+                    // 입력창과 전송 버튼 생성
+                    const inputContainer = $('<div id="input-container"></div>').appendTo('.box2');
+                    const userInput = $('<input type="text" id="user-input" placeholder="메시지를 입력하세요">').appendTo(inputContainer);
+                    const sendBtn = $('<button id="send-btn">전송</button>').appendTo(inputContainer);
+
+                    // 전송 버튼 클릭 이벤트
+                    sendBtn.click(function() {
+                        // 사용자가 입력한 메시지를 가져와서 sendMessage 함수 호출
+                        const userMessage = userInput.val();
+                        sendMessage(userMessage);
+                        // 입력창 비우기
+                        userInput.val('');
+                    });
+                });
+            </script>
+
+            </div>
+
+            <div class="box3">
+
+
+                <table id="stockTable">
+                    <tr>
+                        <th>BRAND</th>
+                        <th>LIKE</th>
+                        <th>CHANGE</th>
+                        <th>RATE</th>
+                    </tr>
+                    <tr>
+                        <td>NATIONAL GEO</td>
+                        <td id="stockPrice">73,200</td>
+                        <td id="priceChange">0</td>
+                        <td id="percentageChange">0.00%</td>
+                    </tr>
+                </table>
+                <div>
+                    <!-- 차트사이즈는 여기서 조정하자 -->
+                    <canvas id="stockChart" width="1200" height="700" ></canvas>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+<!--        <div class="footer">-->
+<!--            <p> 전화번호 010-3334-4333</p>-->
+
+<!--        </div>-->
+
+
+        <footer id ="footerWrap">
+            <div class = "footer">
+                <div class="notice">
+                    <h3>공지사항</h3></div>
+                <ul class="footInfo">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">협업/제휴/협찬(문의:tetere@naver.com></a></li>
+                </ul>
+                <div class="foot">
+                    <dl class="sns">
+                        <dt>sns</dt>
+                        <a href="#"><img src=img/fb_icon.png alt ="fb"></a>
+                        <a href="#"><img src=img/insta_icon.png alt ="insta"></a>
+                        <a href="#"><img src=img/ytb_icon.png alt ="tv"></a>
+                    </dl>
+                    <dl class="csCenter">
+                        <dt>고객센터</dt>
+                        <dd>전화문의
+                            <strong>1333-3333</strong></dd>
+                        <span>*월~금 10:00-17:00/점심13:00-14:00(토/일,공휴일은 휴무)</span>
+                        <span class="ps">(전화연결이 되지않을때에는 게시판으로 문의 부탁드립니다.)</span>
+
+                    </dl>
+                </div>
+
+            </div>
+        </footer>
+
+
+    </div>
+    <div class="chatbot">
+       <button id="bot"><a href="chat/newPage2.html"  onclick="openNewWindow(); return false;">쳇봇</a></button>
+    </div>
+
+    <script>
+        const stockPrices = []; // 삼성전자 주가를 저장할 배열
+        let stockChart; // 차트 변수를 전역으로 선언
+
+        // 차트 초기화
+        const ctx = document.getElementById('stockChart').getContext('2d');
+        stockChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: 10 }, (_, i) => ''),
+                datasets: [{
+                    label: '브랜드 민심',
+                    data: stockPrices,
+                    borderColor: 'rgb(213,212,62)',
+                    borderWidth: 1,
+                    fill: false,
+                }],
+            },
+            options: {
+                responsive: false, // 차트 사이즈 수동 조정 (기본값은 자동할당)
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                    },
+                },
+            },
+        });
+
+        function updateStock() {
+            // 현재 주가
+            const currentPrice = parseFloat($('#stockPrice').text().replace(/,/g, ''));
+
+            // 랜덤한 변동률 생성 (-5%에서 5% 범위 내)
+            const randomChangePercentage = (Math.random() - 0.5) * 10;
+
+            // 주가 변동 (100단위로 변경)
+            const priceChange = Math.round(currentPrice * (randomChangePercentage / 100) / 100) * 100;
+            const newPrice = currentPrice + priceChange;
+
+            // 주가 배열에 추가
+            stockPrices.push(newPrice);
+            // 변동 및 변동률 업데이트
+            const formattedPriceChange = priceChange.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            const formattedNewPrice = newPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            $('#priceChange').text(formattedPriceChange);
+            $('#stockPrice').text(formattedNewPrice);
+            $('#percentageChange').text(randomChangePercentage.toFixed(2) + '%');
+
+            // 추가: 주가 상승, 하락에 따라 텍스트 색상 변경
+            if (priceChange > 0) {
+                $('#stockPrice').removeClass('down').addClass('up');
+                $('#priceChange').removeClass('down').addClass('up');
+                $('#percentageChange').removeClass('down').addClass('up');
+            } else if (priceChange < 0) {
+                $('#stockPrice').removeClass('up').addClass('down');
+                $('#priceChange').removeClass('up').addClass('down');
+                $('#percentageChange').removeClass('up').addClass('down');
+            } else {
+                $('#stockPrice').removeClass('up down');
+                $('#priceChange').removeClass('up down');
+                $('#percentageChange').removeClass('up down');
+            }
+
+
+
+            // 최대 10개까지만 유지
+            if (stockPrices.length > 10) {
+                stockPrices.shift(); // 첫 번째 원소 제거
+            }
+
+            // 차트 업데이트
+            updateChart();
+        }
+
+        // 초기 업데이트
+        updateStock();
+
+        // 랜덤한 시간 주기로 주가 업데이트
+        const MIN_INTERVAL = 1000; // 최소 1초
+        const MAX_INTERVAL = 3000; // 최대 3초
+        function scheduleUpdate() {
+            const randomInterval = Math.random() * (MAX_INTERVAL - MIN_INTERVAL + 1) + MIN_INTERVAL;
+            setTimeout(function() {
+                updateStock();
+                scheduleUpdate();
+            }, randomInterval);
+        }
+
+        scheduleUpdate();
+
+        function updateChart() {
+            stockChart.data.labels = Array.from({ length: 10 }, (_, i) => ''); // 데이터 레이블 비우기
+            stockChart.data.labels.push('');
+            stockChart.data.datasets[0].data = stockPrices;
+            stockChart.update();
+        }
+    </script>
+
+
+
+
+
+    <script src="main3.js"></script>
+</body>
+</html>
