@@ -12,11 +12,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // GET 방식: 정적인 페이지를 요청할 때 사용하는 통신 방식
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'jaewoo', 'HomePage_bak.html'));
+    res.sendFile(path.join(__dirname, 'public', 'jaewoo', 'index.html'));
 });
 
 app.get('/jaewoo', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'jaewoo', 'HomePage_bak.html'));
+    res.sendFile(path.join(__dirname, 'public', 'jaewoo', 'index.html'));
 });
 
 // POST 방식: 동적인 페이지 서비스가 필요할 때 사용되는 통신 방식
